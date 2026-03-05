@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mini Agenda de Tareas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Mini Agenda de Tareas</h1>
+
+    <section class="list-section">
+      <div class="list-header">
+        <h2>Tareas</h2>
+        <div class="filters">
+          <button id="filter-all" class="filter active">Todas</button>
+          <button id="filter-inprogress" class="filter">En progreso</button>
+          <button id="filter-completed" class="filter">Cumplidas</button>
+        </div>
+      </div>
+      <ul id="task-list"></ul>
+    </section>
+
+    <button id="open-create" class="fab" aria-label="Crear tarea">+</button>
+
+    <aside id="task-panel" class="panel" aria-hidden="true">
+      <div class="panel-header">
+        <h3>Crear / Editar tarea</h3>
+        <button id="close-panel" class="close">✕</button>
+      </div>
+      <form id="task-form">
+        <input type="hidden" id="task-id">
+        <div class="row">
+          <label>Nombre de la tarea</label>
+          <input type="text" id="task-name" required placeholder="Escribe el nombre de la tarea">
+        </div>
+
+        <div class="row">
+          <label>Estado</label>
+          <select id="task-status">
+            <option value="sin_iniciar">Sin iniciar</option>
+            <option value="en_proceso">En proceso</option>
+            <option value="finalizada">Finalizada</option>
+            <option value="reprogramada">Reprogramada</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>Fecha de cumplimiento</label>
+          <input type="date" id="task-due">
+        </div>
+
+        <div class="row">
+          <label>Duración estimada (horas)</label>
+          <input type="number" id="task-duration" min="0" step="0.5" placeholder="Ej: 2">
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="save-btn">Crear tarea</button>
+          <button type="button" id="cancel-btn" class="secondary">Cancelar</button>
+        </div>
+      </form>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
